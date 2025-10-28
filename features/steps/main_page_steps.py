@@ -11,5 +11,7 @@ def open_main(context):
 @when('User logs in with {email} and {password}')
 def user_log_in(context,email,password):
     context.app.main_page.user_login(email,password)
-    sleep(5)
+    sleep(10)
+
+
 

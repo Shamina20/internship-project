@@ -47,6 +47,12 @@ class Page:
     def wait_until_element_disappear(self, *locator):
         self.wait.until(EC.invisibility_of_element(locator), message=f'Element by {locator} did not disappear')
 
+    def wait_until_element_is_present(self,*locator):
+        element = self.wait.until(
+            EC.presence_of_element_located(locator),
+            message=f'Element by {locator} did not present'
+        )
+        return element
     def wait_until_url_contains(self, partial_url):
         self.wait.until(EC.url_contains(partial_url), message=f'Current url does not contain {partial_url}')
 

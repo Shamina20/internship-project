@@ -8,6 +8,7 @@ class Verify_Page(Page):
     PRODUCT_IMAGE = (By.XPATH, "//img[@alt='Project Image']")
 
     def verify_page(self):
+        self.wait_until_url_contains(f'find.reelly.io')
         self.verify_partial_url(f'find.reelly.io')
 
 

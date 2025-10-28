@@ -16,3 +16,4 @@ class MainPage(Page):
         self.input_text(password,*self.LOGIN_PASSWORD)
         self.click(*self.LOGIN_BUTTON)
 
+
