@@ -13,6 +13,7 @@ class Verify_Page(Page):
 
 
     def verify_title_and_visible_picture(self):
+
         self.wait_until_element_appear(*self.PRODUCTS)
         products = self.find_elements(*self.PRODUCTS)
 

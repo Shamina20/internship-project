@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
+
 from selenium.webdriver.chrome.options import Options
 from app.application import Application
 
@@ -10,7 +12,7 @@ def browser_init(context,scenario_name):
     :param context: Behave context
     """
 
-    context.driver = webdriver.Firefox()
+    # context.driver = webdriver.Firefox()
 
 
     # HEADLESS MODE ####
@@ -24,6 +26,24 @@ def browser_init(context,scenario_name):
     #     options=options
     # )
 
+
+    #BrowserStack
+    bs_user = 'shaminasoukath_qz70vE'
+    bs_key = 'BBKcxJP5z1VQ52GyV6iN'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+
+    options = Options()
+    bstack_options = {
+        "os": "OS X",
+        "osVersion": "Sequoia",
+        "browserVersion": "latest",
+        'browserName': 'Safari',
+        'sessionName': scenario_name,
+        "buildName": "InternshipProject",
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
 
     # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
