@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from time import sleep
 from pages.base_page import Page
 
 class Verify_Page(Page):
@@ -27,5 +26,6 @@ class Verify_Page(Page):
             assert title.strip() != "", "Product is missing title"
             assert image.is_displayed(), f"Product image is not visible for '{title}'"
 
-    print("All products have titles and visible images.")
+        print("All products have titles and visible images.")
+
 
